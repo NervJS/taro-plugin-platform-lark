@@ -6,7 +6,7 @@ Taro 插件，用于支持编译飞书(Lark)小程序。
 
 ### 安装
 
-```bash
+``` bash
 yarn add @tarojs/plugin-platform-lark
 ```
 
@@ -14,7 +14,7 @@ yarn add @tarojs/plugin-platform-lark
 
 Taro 项目配置
 
-```javascript
+``` js
 config = {
   // ...
   plugins: [
@@ -33,7 +33,7 @@ config = {
 
 package.json 添加命令
 
-```json
+``` json
 {
   "scripts": {
     "build:lark": "taro build --type lark",
@@ -42,7 +42,7 @@ package.json 添加命令
 }
 ```
 
-```bash
+``` bash
 # yarn
 $ yarn dev:lark
 $ yarn build:lark
@@ -72,8 +72,16 @@ $ NODE_ENV=production taro build --type lark --watch # Mac
 
 如果当前 taro 项目使用 typescript 作为开发语言，需要在项目中 global.d.ts 文件头部添加如下一行：
 
-```ts
+``` ts
 /// <reference path="./node_modules/@tarojs/plugin-platform-lark/types/shims-lark.d.ts" />
+```
+
+## 平台判断
+
+``` js
+if (process.env.TARO_ENV === 'lark') {
+  // ...
+}
 ```
 
 ## 插件选项
