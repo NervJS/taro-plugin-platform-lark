@@ -14,8 +14,6 @@ export default class Lark extends TaroPlatformBase {
 
   globalObject = 'tt';
 
-  projectConfigJson = 'project.tt.json';
-
   runtimePath = `${PACKAGE_NAME}/dist/runtime`;
 
   taroComponentsPath = `${PACKAGE_NAME}/dist/components-react`;
@@ -51,6 +49,7 @@ export default class Lark extends TaroPlatformBase {
       close: () => {
         this.modifyTemplate();
         this.modifyWebpackConfig();
+        this.findAndGenerateConfig();
       },
     });
     this.buildTransaction.addWrapper({
@@ -58,6 +57,20 @@ export default class Lark extends TaroPlatformBase {
         this.modifyAppJsonName();
       },
     });
+  }
+
+  findAndGenerateConfig(): void {
+    const root = process.cwd();
+    const LARK_JSON = 'project.lark.json';
+    const TT_JSON = 'project.tt.json';
+    if (fs.existsSync(path.resolve(root, LARK_JSON))) {
+      this.generateProjectConfig(LARK_JSON);
+    } else if (fs.existsSync(path.resolve(root, TT_JSON))) {
+      // 兼容老项目用project.tt.json做飞书小程序配置文件的场景
+      this.generateProjectConfig(TT_JSON);
+    } else {
+      throw new Error('飞书小程序编译需配置project.lark.json，请确认');
+    }
   }
 
   modifyTemplate(): void {
