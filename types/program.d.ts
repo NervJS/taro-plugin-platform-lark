@@ -4,7 +4,6 @@ import { Template } from './template';
 export default class Lark extends TaroPlatformBase {
     platform: string;
     globalObject: string;
-    projectConfigJson: string;
     runtimePath: string;
     taroComponentsPath: string;
     fileType: {
@@ -24,6 +23,7 @@ export default class Lark extends TaroPlatformBase {
      * 6. buildTransaction - close
      */
     constructor(ctx: IPluginContext, config: unknown, options?: Options);
+    findAndGenerateConfig(): void;
     modifyTemplate(): void;
     /**
      * modify entry
