@@ -1,4 +1,4 @@
-import { RecursiveTemplate } from '@tarojs/shared/dist/template';
+import { RecursiveTemplate } from '@tarojs/shared';
 export declare class Template extends RecursiveTemplate {
     supportXS: boolean;
     Adapter: {

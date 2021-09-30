@@ -1,6 +1,7 @@
 import type { Options } from './types';
 import { IPluginContext, TaroPlatformBase } from '@tarojs/service';
 import { Template } from './template';
+export declare const DEFAULT_ENTRY = "app";
 export default class Lark extends TaroPlatformBase {
     platform: string;
     globalObject: string;
@@ -29,5 +30,4 @@ export default class Lark extends TaroPlatformBase {
      * modify entry
      */
     modifyWebpackConfig(): void;
-    modifyAppJsonName(): void;
 }
