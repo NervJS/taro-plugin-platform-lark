@@ -13,4 +13,14 @@ export class Template extends RecursiveTemplate {
     key: 'tt:key',
     type: 'tt',
   };
+
+  modifyTemplateResult = (res: string, nodeName: string): string => {
+    if (nodeName === 'editor') {
+      return res.replace(
+        /bindatfinder\=\"eh\"/,
+        "bindatfinder=\"{{ i.supportCustomAtFinder?'eh':'' }}\"",
+      );
+    }
+    return res;
+  };
 }
