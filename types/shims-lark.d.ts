@@ -43,17 +43,12 @@ declare module '@tarojs/components/types/WebView' {
   }
 }
 
-interface EditorAtInfo {
-  openId: string;
-  name: string;
-}
-
 declare module '@tarojs/components/types/editor' {
   interface EditorProps {
     contents: {
       html?: string;
       text?: string;
-      json?: string;
+      json?: any;
     };
     /**
      * 当编辑器内容为空的时候的提示信息
@@ -113,7 +108,7 @@ declare module '@tarojs/components/types/editor' {
     /**
      * 点击 at 人或者输入 at 的回调，用于业务方自定义 at 面板（有这个事件默认 at 面板不再弹出）
      */
-    onAtFiner?: (e: CommonEvent) => void;
+    onAtFinder?: (e: CommonEvent) => void;
     /**
      * 失去焦点时的回调
      */
