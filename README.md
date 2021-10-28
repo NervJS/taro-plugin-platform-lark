@@ -16,7 +16,7 @@ Taro 插件，用于支持编译飞书(Lark)小程序。
 
 ### 安装
 
-``` bash
+```bash
 yarn add @tarojs/plugin-platform-lark
 ```
 
@@ -24,7 +24,7 @@ yarn add @tarojs/plugin-platform-lark
 
 在 config/index.js 中配置插件：
 
-``` js
+```js
 config = {
   // ...
   plugins: [
@@ -32,11 +32,11 @@ config = {
       '@tarojs/plugin-platform-lark',
       // 插件选项
       {
-        pc: false
-      }
-    ]
-  ]
-}
+        pc: false,
+      },
+    ],
+  ],
+};
 ```
 
 ### 项目配置
@@ -63,16 +63,16 @@ config = {
 
 package.json 添加命令：
 
-``` json
+```json
 {
   "scripts": {
     "build:lark": "taro build --type lark",
     "dev:lark": "npm run build:lark -- --watch"
-  },
+  }
 }
 ```
 
-``` bash
+```bash
 # yarn
 $ yarn dev:lark
 $ yarn build:lark
@@ -102,13 +102,13 @@ $ NODE_ENV=production taro build --type lark --watch # Mac
 
 如果当前 taro 项目使用 typescript 作为开发语言，需要在项目中 global.d.ts 文件头部添加如下一行：
 
-``` ts
+```ts
 /// <reference path="./node_modules/@tarojs/plugin-platform-lark/types/shims-lark.d.ts" />
 ```
 
 ## 平台判断
 
-``` js
+```js
 if (process.env.TARO_ENV === 'lark') {
   // ...
 }
@@ -116,12 +116,38 @@ if (process.env.TARO_ENV === 'lark') {
 
 ## 插件选项
 
-| 选项名 | 值 | 默认值 | 是否必填 | 说明 |
-| -- | :-: | :-: | :-: | :-: |
-| pc | boolean | false | 否 | 指定 Lark 小程序是否支持 PC 端的组件属性(注 1) |
-| entry |  string | <空> | 否 | 指定 Lark 小程序编译时的入口文件(注 2) |
+| 选项名 |   值    | 默认值 | 是否必填 |                      说明                      |
+| ------ | :-----: | :----: | :------: | :--------------------------------------------: |
+| pc     | boolean | false  |    否    | 指定 Lark 小程序是否支持 PC 端的组件属性(注 1) |
+| entry  | string  |  <空>  |    否    |     指定 Lark 小程序编译时的入口文件(注 2)     |
 
 注：
 
 1. Lark 小程序支持在 PC 客户端上运行；举个例子，如果此时 view 组件要支持 bindmouseenter / bindmouseleave 这一对属性， 就需要开启这个选项。
 2. Taro 的默认小程序编译入口是 src 文件夹下的 app.(ts|js|tsx)，可以设置 entry 为另一个文件的路径来修改 Lark 小程序编译入口，这里的路径是相对于项目编译配置的 sourceRoot (一般是 'src')的，且在入口文件的相同文件夹下需要存在同名的 config 文件(默认入口是 app.(ts|js|tsx)，且存在 app.config.(ts|js))。
+
+## 使用须知
+
+### Editor 组件
+
+与[飞书小程序开发文档](https://open.feishu.cn/document/uYjL24iN/uMTM4QjLzEDO04yMxgDN)的描述不同，Editor 组件设置 onAtFinder 属性(对应原生的 bindatfinder 属性)时需要将 supportCustomAtFinder 属性(插件自定义属性，默认值为 false)设置为 true：
+
+```jsx
+<Editor
+  contents={{
+    // ...
+  }}
+  plugins={PLUGINS}
+  supportCustomAtFinder // 开关打开后 onAtFinder 才能生效
+  onInput={fn}
+  onReady={fn}
+  onEditorClick={fn}
+  onMentionSelect={fn}
+  onMentionClick={fn}
+  onAtFinder={(e) => {
+    e.atFinderCallback([
+      // ...
+    ]);
+  }}
+/>
+```
