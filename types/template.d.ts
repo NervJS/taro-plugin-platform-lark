@@ -11,4 +11,5 @@ export declare class Template extends RecursiveTemplate {
         key: string;
         type: string;
     };
+    modifyTemplateResult: (res: string, nodeName: string) => string;
 }
