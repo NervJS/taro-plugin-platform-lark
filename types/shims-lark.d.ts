@@ -72,6 +72,10 @@ declare module '@tarojs/components/types/editor' {
      */
     autoHeight?: boolean;
     /**
+     * 是否支持业务方自定义 at 面板，值为 true 时 onAtFinder 事件必定生效
+     */
+    supportCustomAtFinder?: boolean;
+    /**
      * 编辑器初始化完成时的触发
      */
     onReady?: (e: CommonEvent) => void;
@@ -106,7 +110,7 @@ declare module '@tarojs/components/types/editor' {
      */
     onEditorClick?: (e: CommonEvent) => void;
     /**
-     * 点击 at 人或者输入 at 的回调，用于业务方自定义 at 面板（有这个事件默认 at 面板不再弹出）
+     * 点击 at 人或者输入 at 的回调，用于业务方自定义 at 面板（有这个事件默认 at 面板不再弹出），需要先设置 supportCustomAtFinder 为 true
      */
     onAtFinder?: (e: CommonEvent) => void;
     /**
