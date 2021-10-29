@@ -1,6 +1,6 @@
 {
   "name": "@tarojs/plugin-platform-lark",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "taro platform plugin for lark",
   "main": "index.js",
   "files": [
