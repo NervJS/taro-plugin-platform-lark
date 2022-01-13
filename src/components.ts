@@ -88,7 +88,7 @@ export const pcComponents = mergeComponents(baseComponents, {
     placeholderStyle: '',
     disabled: 'false',
     focus: 'false',
-    enableRemind: '',
+    enableRemind: 'true',
     reminderSuggestions: '[]',
     bindinput: '',
     bindconfirm: '',
