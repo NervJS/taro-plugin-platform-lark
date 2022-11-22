@@ -76,6 +76,10 @@ export default class Lark extends TaroPlatformBase {
   modifyTemplate(): void {
     const { pc } = this.options;
     this.template.mergeComponents(this.ctx, pc ? pcComponents : baseComponents);
+    // 飞书input/textarea不需要根据focus状态生成不同的template.
+    const focusComponents = this.template.focusComponents;
+    focusComponents.delete('input');
+    focusComponents.delete('textarea');
   }
 
   /**
