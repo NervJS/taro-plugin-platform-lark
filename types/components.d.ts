@@ -15,6 +15,8 @@ export declare const baseComponents: {
     };
     PickerView: {
         bindpickover: string;
+        bindpickstart: string;
+        bindpickend: string;
     };
     Video: {
         'auto-fullscreen': string;

@@ -35,6 +35,8 @@ export const baseComponents = {
 
   PickerView: {
     bindpickover: '',
+    bindpickstart: '',
+    bindpickend: '',
   },
 
   Video: {
