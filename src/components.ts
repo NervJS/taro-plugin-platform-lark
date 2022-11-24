@@ -35,10 +35,26 @@ export const baseComponents = {
 
   PickerView: {
     bindpickover: '',
+    bindpickstart: '',
+    bindpickend: '',
   },
 
   Video: {
     'auto-fullscreen': 'false',
+  },
+
+  Camera: {
+    mode: singleQuote('normal'),
+    resolution: singleQuote('medium'),
+    'device-position': singleQuote('back'),
+    flash: singleQuote('auto'),
+    scanCodeType: singleQuote('continuous'),
+    bindInitDone: '',
+    bindStop: '',
+    bindError: '',
+    bindInserted: '',
+    bindScanCode: '',
+    bindLumaDetect: '',
   },
 
   WebView: {

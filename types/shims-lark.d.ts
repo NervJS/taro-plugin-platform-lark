@@ -1,5 +1,6 @@
 import type { ComponentType, CSSProperties } from 'react';
 import type {
+  BaseEventOrig,
   CommonEvent,
   StandardProps,
 } from '@tarojs/components/types/common';
@@ -15,9 +16,19 @@ declare module '@tarojs/components/types/View' {
 declare module '@tarojs/components/types/PickerView' {
   interface PickerViewProps {
     /**
-     * 当选择过程中经过新的值的时候，此时只会触发 pickover 不会触发 change 事件，event.detail = {column: number, row: number}
+     * 当选择过程中经过新的值的时候，此时只会触发 pickover 不会触发 change 事件，event.detail = {column: number, row: number}. ≥3.44
      */
     onPickOver?: (e: CommonEvent) => void;
+
+    /**
+     * 当选择开始时触发该事件，event.detail = {column: number}. ≥3.44
+     */
+    onPickStart?: (e: CommonEvent) => void;
+
+    /**
+     * 当选择结束的时候并且在动画结束之后触发该事件（暂时不能保证 pickend 和 change 事件触发的先后顺序关系），event.detail = {column: number}. ≥3.44
+     */
+    onPickEnd?: (e: CommonEvent) => void;
   }
 }
 
@@ -31,6 +42,21 @@ declare module '@tarojs/components/types/Video' {
      * 是否显示下载按钮，仅 PC 端 >= 3.45
      */
     showDownloadBtn?: boolean;
+  }
+}
+declare module '@tarojs/components/types/Camera' {
+  interface CameraProps {
+    /** 相机组件被插入到页面时调用, 此回调当前用于告知是否开启同层渲染. 仅移动端, >=5.21.0
+     * @supported lark
+     */
+    onInserted?: (event: BaseEventOrig<CameraProps.onInsertedEventDetail>) => void
+  }
+
+  namespace CameraProps {
+    interface onInsertedEventDetail {
+      /** 当前是否开启同层渲染 */
+      isRenderInSameLayer: boolean
+    }
   }
 }
 
