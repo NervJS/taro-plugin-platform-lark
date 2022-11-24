@@ -43,6 +43,20 @@ export const baseComponents = {
     'auto-fullscreen': 'false',
   },
 
+  Camera: {
+    mode: singleQuote('normal'),
+    resolution: singleQuote('medium'),
+    'device-position': singleQuote('back'),
+    flash: singleQuote('auto'),
+    scanCodeType: singleQuote('continuous'),
+    bindInitDone: '',
+    bindStop: '',
+    bindError: '',
+    bindInserted: '',
+    bindScanCode: '',
+    bindLumaDetect: '',
+  },
+
   WebView: {
     'progressbar-color': singleQuote('#51a0d8'),
   },
