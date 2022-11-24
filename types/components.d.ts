@@ -15,9 +15,24 @@ export declare const baseComponents: {
     };
     PickerView: {
         bindpickover: string;
+        bindpickstart: string;
+        bindpickend: string;
     };
     Video: {
         'auto-fullscreen': string;
+    };
+    Camera: {
+        mode: string;
+        resolution: string;
+        'device-position': string;
+        flash: string;
+        scanCodeType: string;
+        bindInitDone: string;
+        bindStop: string;
+        bindError: string;
+        bindInserted: string;
+        bindScanCode: string;
+        bindLumaDetect: string;
     };
     WebView: {
         'progressbar-color': string;
