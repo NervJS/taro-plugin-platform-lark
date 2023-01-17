@@ -35,6 +35,17 @@ const runtimeConfig = {
   ...base
 }
 
+// 供 Loader 使用的运行时入口
+const runtimeConfigForPC = {
+  input: join(cwd, 'src/runtime-pc.ts'),
+  output: {
+    file: join(cwd, 'dist/runtime-pc.js'),
+    format: 'es',
+    sourcemap: true
+  },
+  ...base
+}
+
 // 供继承的包使用，为了能 tree-shaking
 const runtimeUtilsConfig = {
   input: join(cwd, 'src/runtime-utils.ts'),
@@ -56,4 +67,4 @@ const otherConfig = {
   ...base
 }
 
-module.exports = [compileConfig, runtimeConfig, runtimeUtilsConfig, otherConfig]
+module.exports = [compileConfig, runtimeConfig, runtimeConfigForPC, runtimeUtilsConfig, otherConfig]

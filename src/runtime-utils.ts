@@ -1,6 +1,6 @@
 import { initNativeApi } from './apis';
 import { noPromiseApis, needPromiseApis } from './apis-list';
-import { components } from './components';
+import { components, pcComponents } from './components';
 
 const hostConfig = {
   initNativeApi,
@@ -8,6 +8,7 @@ const hostConfig = {
 
 export {
   components,
+  pcComponents,
   hostConfig,
   initNativeApi,
   needPromiseApis,

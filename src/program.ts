@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { IPluginContext, TaroPlatformBase } from '@tarojs/service';
 import { Template } from './template';
-import { pcComponents, baseComponents } from './components';
+import { pcComponents, components } from './components';
 
 const PACKAGE_NAME = '@tarojs/plugin-platform-lark';
 
@@ -44,6 +44,12 @@ export default class Lark extends TaroPlatformBase {
   ) {
     super(ctx, config);
 
+    const { pc } = options;
+
+    this.runtimePath = pc
+      ? `${PACKAGE_NAME}/dist/runtime-pc`
+      : `${PACKAGE_NAME}/dist/runtime`;
+
     this.options = options;
     this.setupTransaction.addWrapper({
       close: () => {
@@ -75,7 +81,7 @@ export default class Lark extends TaroPlatformBase {
 
   modifyTemplate(): void {
     const { pc } = this.options;
-    this.template.mergeComponents(this.ctx, pc ? pcComponents : baseComponents);
+    this.template.mergeComponents(this.ctx, pc ? pcComponents : components);
     // 飞书input/textarea不需要根据focus状态生成不同的template.
     const focusComponents = this.template.focusComponents;
     focusComponents.delete('input');
