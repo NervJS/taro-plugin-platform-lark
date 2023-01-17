@@ -114,4 +114,4 @@ export const pcComponents = mergeComponents(baseComponents, {
   },
 });
 
-export const components = pcComponents;
+export const components = baseComponents;
