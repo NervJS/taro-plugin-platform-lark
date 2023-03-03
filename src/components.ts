@@ -79,6 +79,10 @@ export const baseComponents = {
     bindatfinder: '',
     bindblur: '',
   },
+  Textarea: {
+    'disable-default-padding': 'false',
+    'adjust-position': 'true',
+  },
 };
 
 // for pc

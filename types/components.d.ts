@@ -55,6 +55,10 @@ export declare const baseComponents: {
         bindatfinder: string;
         bindblur: string;
     };
+    Textarea: {
+        'disable-default-padding': string;
+        'adjust-position': string;
+    };
 };
 export declare const pcComponents: Components;
 export declare const components: {
@@ -107,6 +111,10 @@ export declare const components: {
         bindeditorclick: string;
         bindatfinder: string;
         bindblur: string;
+    };
+    Textarea: {
+        'disable-default-padding': string;
+        'adjust-position': string;
     };
 };
 export {};
