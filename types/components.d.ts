@@ -45,6 +45,9 @@ export declare const baseComponents: {
         placeholderStyle: string;
         'adit-style': string;
         'auto-height': string;
+        'support-markdown': string;
+        'support-attribution': string;
+        'support-insert-image': string;
         bindready: string;
         bindinput: string;
         bindinsertimage: string;
@@ -98,6 +101,9 @@ export declare const components: {
         placeholderStyle: string;
         'adit-style': string;
         'auto-height': string;
+        'support-markdown': string;
+        'support-attribution': string;
+        'support-insert-image': string;
         bindready: string;
         bindinput: string;
         bindinsertimage: string;

@@ -69,6 +69,9 @@ export const baseComponents = {
     placeholderStyle: '{}',
     'adit-style': '',
     'auto-height': 'false',
+    'support-markdown': 'true',
+    'support-attribution': 'true',
+    'support-insert-image': 'true',
     bindready: '',
     bindinput: '',
     bindinsertimage: '',
@@ -111,6 +114,11 @@ export const pcComponents = mergeComponents(baseComponents, {
     binddelete: '',
     bindfocus: '',
     bindblur: '',
+  },
+
+  Editor: {
+    'hyperlink-options': '{supportModifyPopup: true}',
+    bindinsertvideo: '',
   },
 });
 
