@@ -43,9 +43,9 @@ export class Template extends RecursiveTemplate {
     // 支持新架构，保证 slot 一定直接位于自定义组件下，避免被 template 包一层之后无法识别
     return `<view tt:if="{{item.nn==='slot'}}" slot="{{item.name}}" id="{{item.uid}}">
         <block tt:for="{{item.cn}}" tt:key="uid">
-          <template is="tmpl_0_container" data="{{i:item}}" />
+          <template is="{{'tmpl_0_' + item.nn}}" data="{{i:item}}" />
         </block>
       </view>
-      <template tt:else is="tmpl_0_container" data="{{i:item}}" />`;
+      <template tt:else is="{{'tmpl_0_' + item.nn}}" data="{{i:item}}" />`;
   };
 }
