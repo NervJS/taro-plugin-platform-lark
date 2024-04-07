@@ -63,27 +63,6 @@ config = {
 }
 ```
 
-### 项目配置
-
-插件支持的项目配置文件是 project.lark.json 或者 project.tt.json (优先前者，项目根目录下手动创建即可)，常用配置内容如下：
-
-```json
-{
-  "miniprogramRoot": "./",
-  "projectname": "taro-lark",
-  "description": "taro-lark",
-  "appid": "touristappid",
-  "setting": {
-    "urlCheck": true,
-    "es6": true,
-    "postcss": false,
-    "minified": false
-  },
-  "compileType": "miniprogram"
-}
-
-```
-
 ### 编译命令
 
 package.json 添加命令：
