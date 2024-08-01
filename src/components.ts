@@ -72,6 +72,7 @@ export const baseComponents = {
     'support-markdown': 'true',
     'support-attribution': 'true',
     'support-insert-image': 'true',
+    'attr-disabled-keys': '[]',
     bindready: '',
     bindinput: '',
     bindinsertimage: '',

@@ -48,6 +48,7 @@ export declare const baseComponents: {
         'support-markdown': string;
         'support-attribution': string;
         'support-insert-image': string;
+        'attr-disabled-keys': string;
         bindready: string;
         bindinput: string;
         bindinsertimage: string;
@@ -108,6 +109,7 @@ export declare const components: {
         'support-markdown': string;
         'support-attribution': string;
         'support-insert-image': string;
+        'attr-disabled-keys': string;
         bindready: string;
         bindinput: string;
         bindinsertimage: string;
